@@ -1,0 +1,38 @@
+HELP
+=====
+
+This is a simple help system.
+It shows a tree view of avaliable help and a display area for the selected help.
+
+You can create the help frame by two methods:
+
+HelpFrame frame = new HelpFrame(String, String);
+HelpFrame frame = new HelpFrame(String, String, boolean);
+
+The first creates the frame with the path and name and automatically sets the frame visible.
+The second creates the frame with the path and name but allows you to not show the frame.
+If you choose not to display the frame on creation then you will need to call setVisable(true)
+on the created JFrame.
+
+File structure:
+Help files are read from path + name + File.separator.
+Where path and name are the two String arguments passed to the constructor.
+You can have as many files and directories as you want but only files ending in .html or .htm
+will be read. Any file that is hidden (starts with a .) will not be shown.
+If the user selects a directory from the tree view then the index.html file for that dir
+will be shown. If this file is missing then a sorry message will be displayed informing
+the user that no help is avaliable for that dir.
+
+Default Text:
+If you place an index.html file in the root dir then it will be shown on startup.
+If you don't then a short message saying "Welcome, this is help for name" and a
+link to my GitHub.
+
+Pro Tip:
+You can set your own image to be displayed in place of the default one.
+use frame.setIconImage(img).
+You can read an image from file with
+Image img = ImageIO.read(new File("/dir/file.jpg"));
+
+
+Thanks.
